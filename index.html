@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P1-M08.5</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-3-step-5').style.display = 'none';
+            }
+        }
+
+        function navigateTo(id) {
+            var element = document.getElementById(id);
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook-P1-M08.5</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+<!-- Actividad 0: Revisión Misión -->
+<div id="activity-0" class="activity">
+    <div class="banner" onclick="toggleContent('revision_mision')">
+        <div class="title">📚 Actividad 0: Revisión Misión ⏰ Tiempo: N/A</div>
+        <div class="subtitle">Revisar los recursos y verificar el acceso a internet.</div>
+    </div>
+    <div id="revision_mision" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (N/A):</strong> Proyectar Diapositiva 1 y revisar los recursos. Comprobar el funcionamiento de los enlaces a los juegos y asegurarse de que los dispositivos tengan acceso a internet y las magic tablets estén listas.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 1: Saludo y Ritual Gnius Club -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Dar la bienvenida y preparar el ambiente para el aprendizaje.</div>
+    </div>
+    <div id="saludo_ritual" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 2: "Gnius Club". El maestro saluda a los estudiantes y les presenta el tema del día.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Hola, Genios! ¿Están listos para una aventura divertida? Hoy vamos a aprender algo muy especial: ¡cómo usar el mouse para guiar un barco, resolver puzzles y colorear mandalas! ¿Quién está emocionado?"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 3: "¿Cómo están?" y pedir a los estudiantes que hagan gestos para expresar su estado de ánimo.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Quiero ver cómo se sienten! Si están súper emocionados y listos para la aventura, pónganse como un avión, extendiendo los brazos y simulando que vuelan. Si necesitan un poco más de energía, hagan como si estuvieran estirándose después de una larga siesta. ¡Listo! Veo muchos aviones volando por aquí, ¡estamos listos!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 4: "Gracias por Asistir" y guiar a los estudiantes en el ritual de agradecimiento.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Ahora todos juntos vamos a juntar nuestras manos y decir: '¡Gracias por estar aquí, Genios! Hoy vamos a aprender algo nuevo y emocionante!' ¡Fantástico!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 5: "Objetivos de la Misión" y leer los objetivos.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy tenemos tres grandes objetivos: 1) Practicar cómo hacer clic correctamente con el mouse, 2) Resolver diferentes desafíos para mejorar nuestras habilidades, y 3) Trabajar en equipo para compartir y ayudarnos mutuamente. ¡Va a ser muy divertido!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 2: Brain Vitamin -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('brain_vitamin')">
+        <div class="title">🧠 Actividad 2: Brain Vitamin ⏰ Tiempo: 4 minutos</div>
+        <div class="subtitle">Ejercicios físicos para preparar a los estudiantes para el uso del mouse.</div>
+    </div>
+    <div id="brain_vitamin" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (1 minuto):</strong> Proyectar Diapositiva 6: "State Change". El maestro explica el ejercicio físico que harán para concentrarse y prepararse para usar el mouse.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Antes de empezar con el reto, vamos a movernos un poco para activar nuestros cerebros! Hoy vamos a usar una técnica divertida llamada 'Manos Mágicas'. ¡Todos listos!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 7 y guiar a los niños en el ejercicio de "Manos Mágicas".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Vamos a usar nuestras manos como si estuvieran moviendo un mouse invisible. Primero, estiren los dedos bien arriba y hagan como si hicieran clics en el aire. ¡Ahora muevan el mouse invisible hacia la izquierda, hacia la derecha, y hacia todos lados! ¡Excelente, Genios! Esto nos ayudará a prepararnos para mover el mouse en el juego."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 8: "Respiración Profunda". El maestro guía a los niños en una breve respiración.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, para concentrarnos aún más, vamos a respirar profundamente tres veces. Todos tomen aire por la nariz en uno, dos, tres, ¡y suelten el aire haciendo un sonido de clic con la lengua! Vamos, otra vez... ¡Buen trabajo! Ahora estamos listos para el reto de hoy."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 3: Challenge -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">⚔️ Actividad 3: Challenge ⏰ Tiempo: 33 minutos</div>
+        <div class="subtitle">Presentar y guiar el desafío del día.</div>
+    </div>
+    <div id="challenge" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 9: "Portada del Challenge" con un título grande y visualmente atractivo. Explicar que hay tres desafíos diferentes, cada uno más difícil que el otro.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Genios, ha llegado el momento del gran desafío! Hoy tendrán tres opciones, cada una con diferentes niveles de dificultad. Pueden elegir el desafío que crean que corresponde a su habilidad. ¿Quién está listo para elegir su reto?"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 10: "Explicación de los Challenges". El maestro explica cada nivel de manera sintetizada.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "El desafío Rookie consiste en guiar un barco de papel por un laberinto con el mouse, evitando obstáculos. El desafío Master trata de mover y girar regletas para completar un puzzle. Y por último, el desafío Hacker implica colorear mandalas con precisión usando el mouse. ¡Elige el que más te desafíe!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 11: "Elige tu desafío". Mostrar los tres enlaces con imágenes representativas de cada desafío.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, Genios, elijan su desafío haciendo clic en el enlace correspondiente. Si terminan antes de tiempo, pueden pasar al siguiente nivel. ¡Vamos a comenzar!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (25 minutos):</strong> Proyectar Diapositiva 12: "Timer de 25 minutos". Supervisar y asistir a los estudiantes mientras trabajan.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Tienen 25 minutos para completar su reto. Concéntrense y trabajen a su ritmo. Si terminan rápido, ¡pueden intentar el siguiente desafío!"</td>
+            </tr>
+            <tr id="activity-3-step-5">
+                <td><strong>PASO 5 (5 minutos):</strong> Proyectar Diapositiva 13: "REFLEXIÓN". Reflexionar sobre la experiencia individual de los estudiantes.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Gran trabajo, Genios! Ahora tómense un minuto para pensar en cómo les fue. ¿Cuál fue el reto más fácil? ¿Y el más difícil? ¿Qué habilidades nuevas aprendieron con el mouse?"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 4: Team Gnius -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">🤝 Actividad 4: Team Gnius ⏰ Tiempo: 7 minutos</div>
+        <div class="subtitle">Trabajar en equipos para mejorar las habilidades en conjunto.</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (1 minuto):</strong> Proyectar Diapositiva 14: Explicar que se formarán equipos de 2 estudiantes para que uno observe y el otro juegue, dando retroalimentación.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, ahora vamos a trabajar en equipos de dos. Uno de ustedes jugará mientras el otro observará y dará sugerencias sobre cómo mejorar. Luego, intercambiarán roles. ¡Recuerden, la colaboración es la clave del éxito!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Proyectar Diapositiva 15: Temporizador de 30 segundos para que los estudiantes se organicen en equipos.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Tienen 30 segundos para formar sus equipos. Busquen un compañero y prepárense para trabajar juntos. ¡El tiempo corre!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 16: Instruir a los estudiantes para que un integrante de cada equipo recoja las Magic Tablets.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de comenzar, un integrante de cada equipo debe ir a recoger las Magic Tablets. ¡Solo uno por equipo! ¡Vamos, Genios!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 17: Temporizador de 30 segundos para que los equipos recojan las Magic Tablets.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Tienen 30 segundos para recoger las Magic Tablets. ¡Solo un miembro del equipo puede ir a recogerlas! ¡Rápido, que el tiempo corre!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (0.5 minutos):</strong> Proyectar Diapositiva 18: "Think-Pair-Share". Los estudiantes reflexionan primero individualmente, luego lo discuten en parejas o equipos pequeños.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Cada uno piense por un momento: ¿qué les salió mejor en el reto y qué podrían mejorar? Luego, compartan sus ideas con su compañero. ¡Recuerden escuchar con atención y dar sugerencias constructivas!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 6 (4 minutos):</strong> Proyectar Diapositiva 19: "Colaboración en Equipo". Guiar a los equipos para alternar roles y tomar decisiones en conjunto.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora que ya compartieron sus ideas, quiero que trabajen en equipo y se turnen para proponer soluciones a cómo mejorarían su desempeño la próxima vez. Cada uno tomará el rol de líder por un momento y anotarán sus ideas en las Magic Tablets."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 7 (0.5 minutos):</strong> Proyectar Diapositiva 20: "Reflexión". Reflexionar sobre los objetivos del día y cómo trabajar en equipo les ayudará a cumplirlos mejor en el futuro.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, pensemos en los objetivos de hoy y cómo el trabajo en equipo nos puede ayudar a ser mejores en el futuro. ¿Cómo el trabajo en equipo mejora la precisión con el mouse? ¡Compartan sus ideas!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 5: Honor de Dojo -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">🏅 Actividad 5: Honor de Dojo ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Revisar los logros y honrar el espacio de trabajo.</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 21: "Revisión de Logros". El maestro reconoce el esfuerzo colectivo y destaca los logros del grupo en general.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Genios, han hecho un trabajo increíble hoy! Todos han mejorado mucho con el uso del mouse y también aprendieron a colaborar en equipo. ¡Bravo! Estoy muy orgulloso de cada uno de ustedes."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 22: "Honor de Dojo". Guiar a los estudiantes en la recogida y organización de los materiales y el aula.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, Genios, es hora de honrar nuestro espacio de trabajo. Vamos a devolver todo el material que utilizamos hoy y asegurarnos de que el aula quede tan ordenada como la encontramos. ¡Vamos a dejar este espacio impecable!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div> <!-- Cierre del container -->
+
+    <!-- Scripts adicionales si es necesario -->
+    <script>
+        // Agregar scripts adicionales aquí si es necesario
+    </script>
+
+    </body>
+    </html>
